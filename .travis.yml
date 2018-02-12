@@ -1,0 +1,31 @@
+language: python
+dist: xenial
+python:
+  - "3.5"
+  - "3.6"
+
+install:
+  - "pip install -r requirement.txt"
+  - "pip install nose"
+
+script: nosetests
+
+deploy:
+  - provider: pypi
+    distributions: "sdist bdist_wheel"
+    server: https://test.pypi.org
+    user: rekeninghub
+    password:
+      secure: FAjHWpYERvR+Om0Vx+gAyiCuXw/hzjRtEymZwAxHO1X/sSlhxH0WVMRcz2WpNPuXMuqKUAlbm1BfChfcNIxDGrqUU+BXDZKPf6WVHYAQLzedjJAN2GOK6KjiMtkXkGPVRuj8Fb39su58gUinhioLqFPzwVD35bYuT/D3H8ihbWWaUT+YGHOydh4A5mKQd9F2/mFc5EejJkO06sQZG8Exp774OvJeiBHMAuAe+UsGJjcEMOJHncCP0UbEHILJ/GZge5YWg5g0WcDSCoSAOeiF3xUFsfgj6XNtXyKxpS5uJ8yyIYEsI9V214aFL++k2QFykVTwRDd7/BG44tmAwPrHLkqSQ8HFECZYXbLduodEdzvI2GDyMrGDwgrLVlcyHQIxXsaQ3PPqzaEySiuo7XxBWDGNzrBxyMZi7/88VUAxHx6aoLrLLpANgnnotOMBFP0hi1CuB7SHcdLtulKbmA18228N/c9QlRiXt3pQgBShw2bTE3v1l6fZAVT9yJqpG1axA5DjZPwBqVE951LIZt70t2AAwSOiYSlRLEwGBLAdYUdfqOZrq1eUFh8FbzJWq4zrtVNZTGSXyaSNxwOhbu3DH+ABKL45FbbpxvcS+sCHx7vNUc+Bvkqc/0Ugpx5RctOk1/fP2TJl3Fc4TpH4Z+TDUambkuHgyOZT38RBazT0oeo=
+    on:
+      branch: master
+      tags: false
+
+  - provider: pypi
+    distributions: "sdist bdist_wheel"
+    user: rekeninghub
+    password:
+      secure: FAjHWpYERvR+Om0Vx+gAyiCuXw/hzjRtEymZwAxHO1X/sSlhxH0WVMRcz2WpNPuXMuqKUAlbm1BfChfcNIxDGrqUU+BXDZKPf6WVHYAQLzedjJAN2GOK6KjiMtkXkGPVRuj8Fb39su58gUinhioLqFPzwVD35bYuT/D3H8ihbWWaUT+YGHOydh4A5mKQd9F2/mFc5EejJkO06sQZG8Exp774OvJeiBHMAuAe+UsGJjcEMOJHncCP0UbEHILJ/GZge5YWg5g0WcDSCoSAOeiF3xUFsfgj6XNtXyKxpS5uJ8yyIYEsI9V214aFL++k2QFykVTwRDd7/BG44tmAwPrHLkqSQ8HFECZYXbLduodEdzvI2GDyMrGDwgrLVlcyHQIxXsaQ3PPqzaEySiuo7XxBWDGNzrBxyMZi7/88VUAxHx6aoLrLLpANgnnotOMBFP0hi1CuB7SHcdLtulKbmA18228N/c9QlRiXt3pQgBShw2bTE3v1l6fZAVT9yJqpG1axA5DjZPwBqVE951LIZt70t2AAwSOiYSlRLEwGBLAdYUdfqOZrq1eUFh8FbzJWq4zrtVNZTGSXyaSNxwOhbu3DH+ABKL45FbbpxvcS+sCHx7vNUc+Bvkqc/0Ugpx5RctOk1/fP2TJl3Fc4TpH4Z+TDUambkuHgyOZT38RBazT0oeo=
+    on:
+      branch: master
+      tags: true
